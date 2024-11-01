@@ -1,7 +1,7 @@
 FROM alpine:edge
 
 LABEL version="1.0"
-LABEL maintainer="Alejandro Sanchez <emailforasr@gmail.com>"
+LABEL maintainer="Luigi Clemente <mrluigiclemente@gmail.com>"
 
 RUN apk --no-cache add tini git openssh-client bash \
     && apk --no-cache add --virtual devs curl tar coreutils gnupg

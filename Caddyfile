@@ -1,21 +1,4 @@
-localhost:3000 {
-  gzip
-  log stdout
-  errors stdout
-  cors
-  root /var/www/html
-  proxy /api {$API_ROOT_1} {
-    header_upstream Accept-Encoding {>Accept-Encoding}
-  }
+zammad.gutricious.com {
+    reverse_proxy 95.217.3.89:3000
 }
 
-localhost:4000 {
-  gzip
-  log stdout
-  errors stdout
-  cors
-  root /var/www/html
-  proxy /api {$API_ROOT_2} {
-    header_upstream Accept-Encoding {>Accept-Encoding}
-  }
-}

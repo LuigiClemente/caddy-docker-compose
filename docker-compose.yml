@@ -1,14 +1,17 @@
 version: '3'
+
 services:
-    caddy:
-        build: .
-        image: alpine-caddy
-        container_name: api-proxy
-        ports:
-            - "3000:3000"
-            - "4000:4000"
-        env_file: .env
-        volumes:
-            - ./Caddyfile:/etc/Caddyfile
-            - ./public:/var/www/html
-            - ./.caddy:/root/.caddy
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
+
